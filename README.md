@@ -76,7 +76,7 @@ npm start
 ```
 
 #### 1.2 Login
-![Login Endpoint](screenshots/login.png)
+![Login Endpoint](screenshots/Login.png)
 - Endpoint: POST /api/login
 - Request Body:
 ```json
