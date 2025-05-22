@@ -64,7 +64,7 @@ npm start
 ### 1. Authentication Endpoints
 
 #### 1.1 Signup
-![Signup Endpoint](screenshots/signup.png)
+![Signup Endpoint](postman_screenshots/signup.png)
 - Endpoint: POST /api/signup
 - Request Body:
 ```json
@@ -76,7 +76,7 @@ npm start
 ```
 
 #### 1.2 Login
-![Login Endpoint](screenshots/Login.png)
+![Login Endpoint](postman_screenshots/Login.png)
 - Endpoint: POST /api/login
 - Request Body:
 ```json
@@ -89,7 +89,7 @@ npm start
 ### 2. Book Management Endpoints
 
 #### 2.1 Create Book
-![Create Book Endpoint](screenshots/create-book.png)
+![Create Book Endpoint](postman_screenshots/create-book.png)
 - Endpoint: POST /api/books
 - Headers: Authorization: Bearer {token}
 - Request Body:
@@ -103,19 +103,19 @@ npm start
 ```
 
 #### 2.2 Get All Books
-![Get All Books Endpoint](screenshots/get-all-books.png)
+![Get All Books Endpoint](postman_screenshots/get-all-books.png)
 - Endpoint: GET /api/books
 - Query Parameters: page, limit, author, genre
 
 #### 2.3 Get Book by ID
-![Get Book by ID Endpoint](screenshots/get_book_by_id.png)
+![Get Book by ID Endpoint](postman_screenshots/get_book_by_id.png)
 - Endpoint: GET /api/books/:id
 - Query Parameters: page, limit
 
 ### 3. Review Management Endpoints
 
 #### 3.1 Create Review
-![Create Review Endpoint](screenshots/create-review.png)
+![Create Review Endpoint](postman_screenshots/create-review.png)
 - Endpoint: POST /api/books/:id/reviews
 - Headers: Authorization: Bearer {token}
 - Request Body:
@@ -127,7 +127,7 @@ npm start
 ```
 
 #### 3.2 Update Review
-![Update Review Endpoint](screenshots/update-review.png)
+![Update Review Endpoint](postman_screenshots/update-review.png)
 - Endpoint: PUT /api/reviews/:id
 - Headers: Authorization: Bearer {token}
 - Request Body:
@@ -139,7 +139,7 @@ npm start
 ```
 
 #### 3.3 Delete Review
-![Delete Review Endpoint](screenshots/Delete-review.png)
+![Delete Review Endpoint](postman_screenshots/Delete-review.png)
 - Endpoint: DELETE /api/reviews/:id
 - Headers: Authorization: Bearer {token}
 
