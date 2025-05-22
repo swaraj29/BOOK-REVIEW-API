@@ -59,37 +59,89 @@ npm start
 - PUT /api/reviews/:id - Update a review (Protected)
 - DELETE /api/reviews/:id - Delete a review (Protected)
 
-## Request Examples
+## API Testing with Postman
 
-### Signup
-```bash
-curl -X POST http://localhost:5000/api/signup \
-  -H "Content-Type: application/json" \
-  -d '{"username": "john_doe", "email": "john@example.com", "password": "password123"}'
+### 1. Authentication Endpoints
+
+#### 1.1 Signup
+![Signup Endpoint](screenshots/signup.png)
+- Endpoint: POST /api/signup
+- Request Body:
+```json
+{
+    "username": "swaraj",
+    "email": "028swarajkumar@gmail.com",
+    "password": "password123"
+}
 ```
 
-### Login
-```bash
-curl -X POST http://localhost:5000/api/login \
-  -H "Content-Type: application/json" \
-  -d '{"email": "john@example.com", "password": "password123"}'
+#### 1.2 Login
+![Login Endpoint](screenshots/login.png)
+- Endpoint: POST /api/login
+- Request Body:
+```json
+{
+    "email": "028swarajkumar@gmail.com",
+    "password": "password123"
+}
 ```
 
-### Create Book
-```bash
-curl -X POST http://localhost:5000/api/books \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer YOUR_JWT_TOKEN" \
-  -d '{"title": "The Great Gatsby", "author": "F. Scott Fitzgerald", "genre": "Fiction", "description": "A story of the fabulously wealthy Jay Gatsby"}'
+### 2. Book Management Endpoints
+
+#### 2.1 Create Book
+![Create Book Endpoint](screenshots/create-book.png)
+- Endpoint: POST /api/books
+- Headers: Authorization: Bearer {token}
+- Request Body:
+```json
+{
+    "title": "The 48 Laws of Power",
+    "author": "Robert Greene",
+    "genre": "Self-Help",
+    "description": "The 48 Laws of Power is a self-help book by American author Robert Greene. The book is a bestseller, selling over 1.2 million copies in the United States, and is popular with prison inmates and celebrities."
+}
 ```
 
-### Create Review
-```bash
-curl -X POST http://localhost:5000/api/books/BOOK_ID/reviews \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer YOUR_JWT_TOKEN" \
-  -d '{"rating": 5, "comment": "Great book!"}'
+#### 2.2 Get All Books
+![Get All Books Endpoint](screenshots/get-all-books.png)
+- Endpoint: GET /api/books
+- Query Parameters: page, limit, author, genre
+
+#### 2.3 Get Book by ID
+![Get Book by ID Endpoint](screenshots/get-book-by-id.png)
+- Endpoint: GET /api/books/:id
+- Query Parameters: page, limit
+
+### 3. Review Management Endpoints
+
+#### 3.1 Create Review
+![Create Review Endpoint](screenshots/create-review.png)
+- Endpoint: POST /api/books/:id/reviews
+- Headers: Authorization: Bearer {token}
+- Request Body:
+```json
+{
+    "rating": 5,
+    "comment": "An excellent book that provides deep insights into power dynamics and human behavior. Highly recommended!"
+}
 ```
+
+#### 3.2 Update Review
+![Update Review Endpoint](screenshots/update-review.png)
+- Endpoint: PUT /api/reviews/:id
+- Headers: Authorization: Bearer {token}
+- Request Body:
+```json
+{
+    "rating": 4,
+    "comment": "Updated review: A great book with valuable insights, though some laws might be controversial."
+}
+```
+
+#### 3.3 Delete Review
+![Delete Review Endpoint](screenshots/delete-review.png)
+- Endpoint: DELETE /api/reviews/:id
+- Headers: Authorization: Bearer {token}
 
 ## Error Handling
 
