@@ -1,0 +1,229 @@
+{
+	"info": {
+		"_postman_id": "book-review-api",
+		"name": "Book Review API",
+		"description": "A RESTful API for managing book reviews",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"swaraj\",\n    \"email\": \"swaraj@example.com\",\n    \"password\": \"password123\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/signup",
+							"host": ["{{base_url}}"],
+							"path": ["api", "signup"]
+						}
+					}
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"swaraj@example.com\",\n    \"password\": \"password123\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/login",
+							"host": ["{{base_url}}"],
+							"path": ["api", "login"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Books",
+			"item": [
+				{
+					"name": "Create Book",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"The 48 Laws of Power\",\n    \"author\": \"Robert Greene\",\n    \"genre\": \"Self-Help\",\n    \"description\": \"The 48 Laws of Power is a self-help book by American author Robert Greene. The book is a bestseller, selling over 1.2 million copies in the United States, and is popular with prison inmates and celebrities.\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/books",
+							"host": ["{{base_url}}"],
+							"path": ["api", "books"]
+						}
+					}
+				},
+				{
+					"name": "Get All Books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/books?page=1&limit=10",
+							"host": ["{{base_url}}"],
+							"path": ["api", "books"],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Book by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/books/{{book_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["api", "books", "{{book_id}}"]
+						}
+					}
+				},
+				{
+					"name": "Search Books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/books/search?query=power",
+							"host": ["{{base_url}}"],
+							"path": ["api", "books", "search"],
+							"query": [
+								{
+									"key": "query",
+									"value": "power"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Reviews",
+			"item": [
+				{
+					"name": "Create Review",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rating\": 5,\n    \"comment\": \"An excellent book that provides deep insights into power dynamics and human behavior. Highly recommended!\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/books/{{book_id}}/reviews",
+							"host": ["{{base_url}}"],
+							"path": ["api", "books", "{{book_id}}", "reviews"]
+						}
+					}
+				},
+				{
+					"name": "Update Review",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rating\": 4,\n    \"comment\": \"Updated review: A great book with valuable insights, though some laws might be controversial.\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/reviews/{{review_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["api", "reviews", "{{review_id}}"]
+						}
+					}
+				},
+				{
+					"name": "Delete Review",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/reviews/{{review_id}}",
+							"host": ["{{base_url}}"],
+							"path": ["api", "reviews", "{{review_id}}"]
+						}
+					}
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:5000"
+		},
+		{
+			"key": "token",
+			"value": "your_jwt_token_here"
+		},
+		{
+			"key": "book_id",
+			"value": "book_id_here"
+		},
+		{
+			"key": "review_id",
+			"value": "review_id_here"
+		}
+	]
+} 

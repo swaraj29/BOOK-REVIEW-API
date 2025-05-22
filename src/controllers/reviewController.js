@@ -96,7 +96,7 @@ const deleteReview = async (req, res) => {
             return res.status(401).json({ message: 'Not authorized' });
         }
 
-        await review.remove();
+        await Review.deleteOne({ _id: req.params.id });
 
         // Update book's average rating and total reviews
         const reviews = await Review.find({ book: review.book });
