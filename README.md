@@ -108,7 +108,7 @@ npm start
 - Query Parameters: page, limit, author, genre
 
 #### 2.3 Get Book by ID
-![Get Book by ID Endpoint](screenshots/get-book-by-id.png)
+![Get Book by ID Endpoint](screenshots/get_book_by_id.png)
 - Endpoint: GET /api/books/:id
 - Query Parameters: page, limit
 
