@@ -139,7 +139,7 @@ npm start
 ```
 
 #### 3.3 Delete Review
-![Delete Review Endpoint](postman_screenshots/Delete-review.png)
+![Delete Review Endpoint](postman_screenshots/delete-review.png)
 - Endpoint: DELETE /api/reviews/:id
 - Headers: Authorization: Bearer {token}
 
